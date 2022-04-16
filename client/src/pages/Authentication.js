@@ -76,7 +76,7 @@ function Authentication() {
         );
       })
       .finally(() => {
-        // navigate("/");
+        navigate("/");
       })
       .catch((error) => {
         console.log(error.message);

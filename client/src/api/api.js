@@ -35,6 +35,9 @@ const API = {
   getTimeline: () => {
     return `${Base.apiUrl()}/posts/timeline/all`;
   },
+  updateProfile: (id) => {
+    return `${Base.apiUrl()}/users/${id}`;
+  },
 };
 
 export default API;

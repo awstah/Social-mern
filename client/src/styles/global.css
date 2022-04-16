@@ -21,6 +21,9 @@
   .post_btn {
     @apply h-10 w-24 text-white font-medium tracking-widest bg-blue-500 p-2 rounded-md cursor-pointer hover:shadow-xl active:scale-95 transform duration-150 transition;
   }
+  .success_btn {
+    @apply h-12 w-32 text-white font-medium tracking-widest bg-green-500 p-2 rounded-md cursor-pointer hover:shadow-xl active:scale-95 transform duration-150 transition;
+  }
 
   .post_action_btn {
     @apply flex space-x-2 items-center mx-auto hover:bg-gray-50 w-full justify-center h-8 rounded-lg active:scale-95 

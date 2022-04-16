@@ -1,7 +1,7 @@
 import axios from "axios";
 import API from "../api/api";
 
-const AuthService = {
+const PostServices = {
   createPost(data) {
     return new Promise((res, rej) => {
       axios
@@ -20,11 +20,11 @@ const AuthService = {
     });
   },
 
-  getPostTimeline(data) {
+  getPostTimeline(userId) {
     return new Promise((res, rej) => {
       axios
         .post(API.getTimeline(), {
-          userId: data.userId,
+          userId,
         })
         .then(
           (response) => {
@@ -38,4 +38,4 @@ const AuthService = {
   },
 };
 
-export default AuthService;
+export default PostServices;

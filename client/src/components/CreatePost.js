@@ -6,22 +6,20 @@ import {
 } from "@heroicons/react/outline";
 import React, { useState } from "react";
 import PostSevices from "../services/PostServices";
-import { useSelector } from "react-redux";
 
-function CreatePost() {
+function CreatePost({ userId }) {
   const [description, setdescription] = useState("");
-  const user = useSelector((state) => state.user);
-
-  console.log(user);
 
   const data = {
     description,
-    userId: user.userId,
+    userId: userId,
   };
 
   const postSubmitHandle = async () => {
     await PostSevices.createPost(data).then((res) => {
       console.log(res.data);
+      setdescription("");
+      //add alert
     });
   };
 
