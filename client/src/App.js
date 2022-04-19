@@ -1,5 +1,4 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import { ProtectedRoute } from "./features/protectedRoute/ProtectedRoute";
 import Authentication from "./pages/Authentication";
@@ -9,7 +8,6 @@ import Profile from "./pages/Profile";
 import Settings from "./pages/Settings";
 
 function App() {
-  const user = useSelector((state) => state.user.email);
   return (
     <div className="">
       <Routes>
@@ -17,7 +15,7 @@ function App() {
           <Route
             index
             element={
-              <ProtectedRoute user={user}>
+              <ProtectedRoute>
                 <Home />
               </ProtectedRoute>
             }
@@ -25,7 +23,7 @@ function App() {
           <Route
             path="/profile"
             element={
-              <ProtectedRoute user={user}>
+              <ProtectedRoute>
                 <Profile />
               </ProtectedRoute>
             }
@@ -33,7 +31,7 @@ function App() {
           <Route
             path="/settings"
             element={
-              <ProtectedRoute user={user}>
+              <ProtectedRoute>
                 <Settings />
               </ProtectedRoute>
             }

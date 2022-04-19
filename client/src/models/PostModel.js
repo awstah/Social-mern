@@ -82,10 +82,10 @@ export default function PostModel({ isOpen, setIsOpen }) {
                       </div>
                       <div className="mt-10 flex space-x-4 justify-between">
                         <div className="flex space-x-4 items-center flex-grow ">
-                          <VideoCameraIcon className="upload_post_btn bg-red-100 text-red-500" />
-                          <PhotographIcon className="upload_post_btn bg-green-100 text-green-500" />
-                          <EmojiHappyIcon className="upload_post_btn bg-yellow-100 text-yellow-500 " />
-                          <LocationMarkerIcon className="upload_post_btn bg-gray-100 text-gray-500" />
+                          <VideoCameraIcon className="upload_post_btn text-red-500" />
+                          <PhotographIcon className="upload_post_btn  text-green-500" />
+                          <EmojiHappyIcon className="upload_post_btn  text-yellow-500 " />
+                          <LocationMarkerIcon className="upload_post_btn  text-gray-500" />
                         </div>
                         <button onClick={postSubmitHandle} className="post_btn">
                           POST

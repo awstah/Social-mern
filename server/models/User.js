@@ -49,6 +49,11 @@ const UserSchema = mongoose.Schema(
       default: false,
     },
 
+    deactivated: {
+      type: Boolean,
+      default: false,
+    },
+
     location: {
       type: String,
     },

@@ -25,6 +25,19 @@ const UserServices = {
         );
     });
   },
+
+  profile(userId) {
+    return new Promise((res, rej) => {
+      axios.get(API.profile(userId)).then(
+        (response) => {
+          return res(response);
+        },
+        (error) => {
+          return rej(error);
+        }
+      );
+    });
+  },
 };
 
 export default UserServices;

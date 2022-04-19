@@ -1,11 +1,37 @@
 import { SearchIcon } from "@heroicons/react/outline";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { Outlet } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
+import { addUser } from "../features/slices/UserSlice";
 import PostModel from "../models/PostModel";
+import UserServices from "../services/UserServices";
 
 function Layout() {
-  const [openModel, setopenModel] = useState(true);
+  const [openModel, setopenModel] = useState(false);
+  const token = localStorage.getItem("token");
+  const userId = localStorage.getItem("userId");
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    UserServices.profile(userId).then((res) => {
+      console.log(res);
+      dispatch(
+        addUser({
+          userId: res.data._id,
+          username: res.data.username,
+          email: res.data.email,
+          first_name: res.data.first_name,
+          last_name: res.data.last_name,
+          profilePicutre: res.data.profilePicutre,
+          followers: res.data.followers,
+          followings: res.data.followings,
+          location: res.data.location,
+          bio: res.data.bio,
+        })
+      );
+    });
+  }, [token]);
 
   return (
     <div className="">

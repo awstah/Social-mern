@@ -36,6 +36,23 @@ const PostServices = {
         );
     });
   },
+
+  likePost(postId, userId) {
+    return new Promise((res, rej) => {
+      axios
+        .put(API.likePost(postId), {
+          userId: userId,
+        })
+        .then(
+          (response) => {
+            return res(response);
+          },
+          (error) => {
+            return rej(error);
+          }
+        );
+    });
+  },
 };
 
 export default PostServices;

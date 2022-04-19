@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from "react";
-import CreatePost from "./../components/CreatePost";
 import PostCard from "./../components/PostCard";
 import PostServices from "../services/PostServices";
-import { useSelector } from "react-redux";
-import { ArrowLeftIcon } from "@heroicons/react/outline";
 
 function Home() {
   const [posts, setposts] = useState([]);
-  const userId = useSelector((state) => state.user.userId);
+  const userId = localStorage.getItem("userId");
 
   const getTimelinePosts = () => {
     PostServices.getPostTimeline(userId).then((res) => {
@@ -17,7 +14,7 @@ function Home() {
 
   useEffect(() => {
     getTimelinePosts();
-  }, []);
+  }, [userId]);
 
   return (
     <div className="">

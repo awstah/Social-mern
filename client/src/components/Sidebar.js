@@ -11,8 +11,11 @@ import {
   UserIcon,
 } from "@heroicons/react/outline";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function Sidebar({ setopenModel }) {
+  const user = useSelector((state) => state.user);
+  console.log("sidebar", user);
   return (
     <div className="hidden pt-2 h-screen md:flex flex-col items-center space-y-10 sticky top-0 pb-5">
       <div className="h-14 flex items-center space-x-3">
@@ -87,8 +90,10 @@ function Sidebar({ setopenModel }) {
               className="h-16 w-16 rounded-full"
             />
             <span>
-              <h3 className="capitalize text-xl font-medium">Yohan Torees</h3>
-              <p className="capitalize text-sm">@Yohan</p>
+              <h3 className="capitalize text-xl font-medium">
+                {user?.first_name + user?.last_name}
+              </h3>
+              <p className="capitalize text-sm">@{user?.username}</p>
             </span>
           </div>
           <DotsVerticalIcon className="h-5 text-gray-600 cursor-pointer" />

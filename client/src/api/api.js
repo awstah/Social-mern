@@ -32,8 +32,14 @@ const API = {
   createPost: () => {
     return `${Base.apiUrl()}/posts`;
   },
+  likePost: (id) => {
+    return `${Base.apiUrl()}/posts/${id}/like`;
+  },
   getTimeline: () => {
     return `${Base.apiUrl()}/posts/timeline/all`;
+  },
+  profile: (id) => {
+    return `${Base.apiUrl()}/users/${id}`;
   },
   updateProfile: (id) => {
     return `${Base.apiUrl()}/users/${id}`;

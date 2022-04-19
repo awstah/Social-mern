@@ -1,7 +1,17 @@
 import { ChatAlt2Icon, ShareIcon, ThumbUpIcon } from "@heroicons/react/outline";
 import React from "react";
+import PostServices from "../services/PostServices";
+import { useSelector } from "react-redux";
 
 function PostCard({ post }) {
+  console.log(post);
+  const postId = post._id;
+  const userId = useSelector((state) => state.user.userId);
+  const LikeUnlikePostHandler = () => {
+    PostServices.likePost(postId, userId).then((res) => {
+      console.log(res);
+    });
+  };
   return (
     <div className="max-w-2xl mx-auto border-b border-gray-200 p-3 pb-4">
       <div className="flex space-x-4 items-center">
@@ -25,7 +35,7 @@ function PostCard({ post }) {
       </div>
 
       <div className="grid grid-cols-3 ">
-        <button className="post_action_btn">
+        <button className="post_action_btn" onClick={LikeUnlikePostHandler}>
           <ThumbUpIcon className="h-4" />
           <span>Like</span>
         </button>

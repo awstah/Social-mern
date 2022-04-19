@@ -15,7 +15,7 @@
   }
 
   .upload_post_btn {
-    @apply h-10 p-2 rounded-md cursor-pointer hover:shadow-xl active:scale-95 transform duration-150 transition;
+    @apply h-10 p-2 rounded-md cursor-pointer active:scale-95 transform duration-150 transition;
   }
 
   .post_btn {

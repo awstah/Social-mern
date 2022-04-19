@@ -15,7 +15,6 @@ function Authentication() {
   const [isLogin, setisLogin] = useState(true);
   const [isAvailble, setisAvailble] = useState(null);
   const [form, setForm] = useState({
-    currentUser: "",
     username: "",
     email: "",
     password: "",
@@ -47,13 +46,8 @@ function Authentication() {
     e.preventDefault();
     AuthService.login(form)
       .then((res) => {
-        dispatch(
-          addUser({
-            userId: res.data._id,
-            username: res.data.username,
-            email: res.data.email,
-          })
-        );
+        localStorage.setItem("token", res.data.token);
+        localStorage.setItem("userId", res.data._id);
       })
       .finally(() => {
         navigate("/");
@@ -67,13 +61,8 @@ function Authentication() {
     e.preventDefault();
     AuthService.register(form)
       .then((res) => {
-        dispatch(
-          addUser({
-            userId: res.data._id,
-            username: res.data.username,
-            email: res.data.email,
-          })
-        );
+        localStorage.setItem("token", res.data.token);
+        localStorage.setItem("userId", res.data._id);
       })
       .finally(() => {
         navigate("/");
