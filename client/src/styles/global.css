@@ -1,0 +1,32 @@
+@tailwind components;
+
+@layer components {
+  .input_container {
+    @apply h-12 w-full rounded-md flex items-center border-2 border-black;
+  }
+  .input {
+    @apply bg-transparent ml-2 w-full outline-none placeholder:text-gray-700;
+  }
+  .input_icon {
+    @apply h-7 px-3 text-black;
+  }
+  .block_btn {
+    @apply h-12 w-full bg-black text-white rounded-md shadow hover:shadow-lg text-xl tracking-widest active:scale-95 transform transition ease-linear duration-150;
+  }
+
+  .upload_post_btn {
+    @apply h-10 p-2 rounded-md cursor-pointer active:scale-95 transform duration-150 transition;
+  }
+
+  .post_btn {
+    @apply h-10 w-24 text-white font-medium tracking-widest bg-blue-500 p-2 rounded-md cursor-pointer hover:shadow-xl active:scale-95 transform duration-150 transition;
+  }
+  .success_btn {
+    @apply h-12 w-32 text-white font-medium tracking-widest bg-green-500 p-2 rounded-md cursor-pointer hover:shadow-xl active:scale-95 transform duration-150 transition;
+  }
+
+  .post_action_btn {
+    @apply flex space-x-2 items-center mx-auto hover:bg-gray-50 w-full justify-center h-8 rounded-lg active:scale-95 
+    transform duration-100 text-gray-700 transition;
+  }
+}
