@@ -3,6 +3,7 @@ import CreatePost from "./../components/CreatePost";
 import PostCard from "./../components/PostCard";
 import PostServices from "../services/PostServices";
 import { useSelector } from "react-redux";
+import { ArrowLeftIcon } from "@heroicons/react/outline";
 
 function Home() {
   const [posts, setposts] = useState([]);
@@ -19,8 +20,12 @@ function Home() {
   }, []);
 
   return (
-    <div>
-      <CreatePost userId={userId} />
+    <div className="">
+      <div className="w-full h-14 flex items-center px-3 space-x-3">
+        {/* <ArrowLeftIcon className="h-4" /> */}
+        <h3 className="font-semibold">Home</h3>
+      </div>
+      {/* <CreatePost userId={userId} /> */}
       <div className="space-y-2 mt-4 pb-10 ">
         {posts?.map((post) => (
           <PostCard key={post._id} post={post} />

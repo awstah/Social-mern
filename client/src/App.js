@@ -6,6 +6,7 @@ import Authentication from "./pages/Authentication";
 import Home from "./pages/Home";
 import Layout from "./layout/Layout";
 import Profile from "./pages/Profile";
+import Settings from "./pages/Settings";
 
 function App() {
   const user = useSelector((state) => state.user.email);
@@ -26,6 +27,14 @@ function App() {
             element={
               <ProtectedRoute user={user}>
                 <Profile />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/settings"
+            element={
+              <ProtectedRoute user={user}>
+                <Settings />
               </ProtectedRoute>
             }
           />

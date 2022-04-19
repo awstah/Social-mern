@@ -25,7 +25,7 @@ function CreatePost({ userId }) {
 
   return (
     <div className=" mt-5 px-3 md:px-0 ">
-      <div className="max-w-xl mx-auto border-b border-gray-200 pb-5">
+      <div className="max-w-2xl mx-auto border-b border-gray-200 pb-5">
         <div className="flex space-x-5">
           <img
             src="https://images.unsplash.com/photo-1529068755536-a5ade0dcb4e8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1162&q=80"

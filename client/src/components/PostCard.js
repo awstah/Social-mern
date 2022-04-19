@@ -3,7 +3,7 @@ import React from "react";
 
 function PostCard({ post }) {
   return (
-    <div className="max-w-xl mx-auto border border-gray-200 rounded-md p-3">
+    <div className="max-w-2xl mx-auto border-b border-gray-200 p-3 pb-4">
       <div className="flex space-x-4 items-center">
         <img
           src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1160&q=80"
