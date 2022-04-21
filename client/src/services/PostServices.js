@@ -38,6 +38,9 @@ const PostServices = {
   },
 
   likePost(postId, userId) {
+    console.log("userId", userId);
+    console.log("postId", postId);
+
     return new Promise((res, rej) => {
       axios
         .put(API.likePost(postId), {

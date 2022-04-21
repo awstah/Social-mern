@@ -18,7 +18,7 @@ function Home() {
 
   return (
     <div className="">
-      <div className="w-full h-14 flex items-center px-3 space-x-3">
+      <div className="w-full h-14 flex items-center px-3 space-x-3 backdrop-blur-md">
         {/* <ArrowLeftIcon className="h-4" /> */}
         <h3 className="font-semibold">Home</h3>
       </div>

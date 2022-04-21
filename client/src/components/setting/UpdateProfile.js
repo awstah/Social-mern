@@ -1,4 +1,9 @@
-import { CheckIcon, XCircleIcon } from "@heroicons/react/outline";
+import {
+  CameraIcon,
+  CheckIcon,
+  PhotographIcon,
+  XCircleIcon,
+} from "@heroicons/react/outline";
 import React, { useState } from "react";
 import UserServices from "../../services/UserServices";
 import AuthService from "../../services/AuthServices";
@@ -45,7 +50,32 @@ function UpdateProfile() {
   };
 
   return (
-    <div className="max-w-xl">
+    <div className="max-w-xl space-y-4">
+      <div className="flex items-center space-x-3">
+        <img
+          src="https://images.unsplash.com/photo-1529068755536-a5ade0dcb4e8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1162&q=80"
+          alt="user"
+          className="w-28 h-28 rounded-full"
+        />
+
+        <button
+          className="flex items-center space-x-3 text-white bg-black w-32 h-12 justify-center rounded-md
+        shadow hover:shadow-xl active:scale-95 transform transition
+        "
+        >
+          <CameraIcon className="h-8 w-8" />
+          <span className="font-semibold tracking-wider">Upload</span>
+        </button>
+
+        <button
+          className="flex items-center space-x-3 text-gray-700 bg-gray-200 w-32 h-12 justify-center rounded-md
+        shadow hover:shadow-xl active:scale-95 transform transition
+        "
+        >
+          <PhotographIcon className="h-8 w-8" />
+          <span className="font-semibold tracking-wider">Gallery</span>
+        </button>
+      </div>
       <form onSubmit={updateUserHandler} className="space-y-3">
         <div className="flex items-center justify-between space-x-4">
           <div className="input_container">
