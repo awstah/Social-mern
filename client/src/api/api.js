@@ -44,6 +44,15 @@ const API = {
   updateProfile: (id) => {
     return `${Base.apiUrl()}/users/${id}`;
   },
+  getUser: (id) => {
+    return `${Base.apiUrl()}/users/${id}/follow`;
+  },
+  followUser: (id) => {
+    return `${Base.apiUrl()}/users/${id}/follow`;
+  },
+  unfollowUser: (id) => {
+    return `${Base.apiUrl()}/users/${id}/follow`;
+  },
 };
 
 export default API;

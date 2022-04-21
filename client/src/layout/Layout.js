@@ -6,6 +6,7 @@ import Sidebar from "../components/Sidebar";
 import { addUser } from "../features/slices/UserSlice";
 import PostModel from "../models/PostModel";
 import UserServices from "../services/UserServices";
+import FollowCard from "./../components/FollowCard";
 
 function Layout() {
   const [openModel, setopenModel] = useState(false);
@@ -42,7 +43,7 @@ function Layout() {
           <div className="md:col-span-2 lg:col-span-2 w-full border-x border-gray-100 ">
             <Outlet />
           </div>
-          <div className="hidden md:inline-flex h-14 items-center px-3 space-x-3">
+          <div className="hidden md:inline-block h-14 items-center p-3 space-x-3 sticky top-0">
             <div className="w-full h-10 sm:border border-gray-600 rounded-full flex items-center">
               <input
                 type="text"
@@ -50,6 +51,10 @@ function Layout() {
                 placeholder="Search..."
               />
               <SearchIcon className="hidden sm:inline h-8 bg-black text-white rounded-full p-2 mx-2 cursor-pointer" />
+            </div>
+
+            <div className="mt-10">
+              <FollowCard />
             </div>
           </div>
         </div>
