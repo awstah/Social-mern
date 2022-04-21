@@ -5,15 +5,14 @@ import PostServices from "../services/PostServices";
 function Home() {
   const [posts, setposts] = useState([]);
   const userId = localStorage.getItem("userId");
+  console.log(posts);
 
-  const getTimelinePosts = () => {
+  const getTimelinePosts = () => {};
+
+  useEffect(() => {
     PostServices.getPostTimeline(userId).then((res) => {
       setposts(res.data);
     });
-  };
-
-  useEffect(() => {
-    getTimelinePosts();
   }, [userId]);
 
   return (

@@ -2,6 +2,7 @@ import { SearchIcon } from "@heroicons/react/outline";
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Outlet } from "react-router-dom";
+import Searchbar from "../components/Searchbar";
 import Sidebar from "../components/Sidebar";
 import { addUser } from "../features/slices/UserSlice";
 import PostModel from "../models/PostModel";
@@ -44,18 +45,7 @@ function Layout() {
             <Outlet />
           </div>
           <div className="hidden md:inline-block h-14 items-center p-3 space-x-3 sticky top-0">
-            <div className="w-full h-10 sm:border border-gray-600 rounded-full flex items-center">
-              <input
-                type="text"
-                className="ml-3 flex-grow outline-none text-gray-600 placeholder:text-gray-400"
-                placeholder="Search..."
-              />
-              <SearchIcon className="hidden sm:inline h-8 bg-black text-white rounded-full p-2 mx-2 cursor-pointer" />
-            </div>
-
-            <div className="mt-10">
-              <FollowCard />
-            </div>
+            <Searchbar />
           </div>
         </div>
       </main>

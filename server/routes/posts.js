@@ -56,6 +56,18 @@ router.put("/:id/like", async (req, res) => {
   }
 });
 
+router.post("/:id/check-like", async (req, res) => {
+  try {
+    console.log(req.body.userId, req.params.id);
+    const post = await Post.findById(req.params.id);
+    const userId = req.body.userId;
+    const isLiked = await post.likes.includes(userId);
+    res.status(200).json({ result: [isLiked, post.likes] });
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
+
 router.get("/:id", async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);
