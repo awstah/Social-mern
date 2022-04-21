@@ -35,6 +35,9 @@ const API = {
   likePost: (id) => {
     return `${Base.apiUrl()}/posts/${id}/like`;
   },
+  checkPostLike: (id) => {
+    return `${Base.apiUrl()}/posts/${id}/check-like`;
+  },
   getTimeline: () => {
     return `${Base.apiUrl()}/posts/timeline/all`;
   },
@@ -52,6 +55,9 @@ const API = {
   },
   unfollowUser: (id) => {
     return `${Base.apiUrl()}/users/${id}/follow`;
+  },
+  userSearch: () => {
+    return `${Base.apiUrl()}/users/search`;
   },
 };
 

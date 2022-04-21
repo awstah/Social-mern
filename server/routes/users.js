@@ -55,9 +55,10 @@ router.put("/:id/follow", async (req, res) => {
     try {
       const user = await User.findById(req.params.id);
       const currentUser = await User.findById(req.body.userId);
+      console.log(currentUser);
       if (!user.followers.includes(req.body.userId)) {
         await user.updateOne({ $push: { followers: req.body.userId } });
-        await currentUser.updateOne({ $push: { followings: req.body.userId } });
+        await currentUser.updateOne({ $push: { followings: req.params.id } });
         res.status(200).json("user has been follwed");
       } else {
         return res.status(403).json("You already follow");
@@ -67,6 +68,16 @@ router.put("/:id/follow", async (req, res) => {
     }
   } else {
     res.status(403).json("You can't follow yourself");
+  }
+});
+
+router.post("/search", async (req, res) => {
+  try {
+    const users = await User.find();
+    if (!users) res.status(400).send({ error: "No User was found" });
+    res.status(200).send(users);
+  } catch (error) {
+    return res.status(500).json(error);
   }
 });
 

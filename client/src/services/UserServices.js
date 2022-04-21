@@ -38,6 +38,40 @@ const UserServices = {
       );
     });
   },
+
+  search(query) {
+    return new Promise((res, rej) => {
+      axios
+        .post(API.userSearch(), {
+          query: query,
+        })
+        .then(
+          (response) => {
+            return res(response);
+          },
+          (error) => {
+            return rej(error);
+          }
+        );
+    });
+  },
+
+  followUser(id, userId) {
+    return new Promise((res, rej) => {
+      axios
+        .put(API.followUser(id), {
+          userId: userId,
+        })
+        .then(
+          (response) => {
+            return res(response);
+          },
+          (error) => {
+            return rej(error);
+          }
+        );
+    });
+  },
 };
 
 export default UserServices;

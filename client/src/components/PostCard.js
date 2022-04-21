@@ -7,21 +7,45 @@ import moment from "moment";
 
 function PostCard({ post }) {
   const [userInfo, setuserInfo] = useState();
-
-  console.log(post);
+  const [isLike, setisLike] = useState(false);
+  const [likes, setlikes] = useState([]);
   const postId = post._id;
-  const userId = useSelector((state) => state.user.userId);
+  const userId = post.userId;
+
   const LikeUnlikePostHandler = () => {
     PostServices.likePost(postId, userId).then((res) => {
       console.log(res);
+      if (res.data === "post has been liked") {
+        setisLike(true);
+      } else {
+        setisLike(false);
+      }
+    });
+  };
+
+  const checkPostIsLike = () => {
+    PostServices.checkPostLike(postId, userId).then((res) => {
+      console.log(res);
+      if (res.data.result[0] === true) {
+        setisLike(true);
+      } else {
+        setisLike(false);
+      }
+
+      setlikes(res.data.result[1]);
+    });
+  };
+
+  const getProfileData = () => {
+    UserServices.profile(userId).then((res) => {
+      setuserInfo(res.data);
     });
   };
 
   useEffect(() => {
-    UserServices.profile(userId).then((res) => {
-      setuserInfo(res.data);
-    });
-  }, []);
+    getProfileData();
+    checkPostIsLike();
+  }, [isLike]);
 
   return (
     <div className="max-w-2xl mx-auto border-b border-gray-200 p-3 pb-4">
@@ -45,10 +69,16 @@ function PostCard({ post }) {
         <p className="font-normal text-lg">{post?.description}</p>
       </div>
 
+      <div>
+        <p className="text-sm text-gray-500">
+          {likes.length} {likes.length > 1 ? "likes" : "like"}
+        </p>
+      </div>
+
       <div className="grid grid-cols-3 ">
         <button className="post_action_btn" onClick={LikeUnlikePostHandler}>
-          <ThumbUpIcon className="h-4" />
-          <span>Like</span>
+          <ThumbUpIcon className={`h-4 ${isLike && "text-blue-500"}`} />
+          <span className={`${isLike && "text-blue-500"}`}>Like</span>
         </button>
         <button className="post_action_btn">
           <ChatAlt2Icon className="h-4" />

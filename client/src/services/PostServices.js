@@ -38,12 +38,26 @@ const PostServices = {
   },
 
   likePost(postId, userId) {
-    console.log("userId", userId);
-    console.log("postId", postId);
-
     return new Promise((res, rej) => {
       axios
         .put(API.likePost(postId), {
+          userId: userId,
+        })
+        .then(
+          (response) => {
+            return res(response);
+          },
+          (error) => {
+            return rej(error);
+          }
+        );
+    });
+  },
+
+  checkPostLike(postId, userId) {
+    return new Promise((res, rej) => {
+      axios
+        .post(API.checkPostLike(postId), {
           userId: userId,
         })
         .then(
