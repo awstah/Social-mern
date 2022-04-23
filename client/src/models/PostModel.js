@@ -70,22 +70,24 @@ export default function PostModel({ isOpen, setIsOpen }) {
                     />
 
                     <div className="w-full">
-                      <div className="flex-grow rounded-xl items-center flex max-h-min ">
-                        <textarea
+                      <div className=" flex-grow items-center flex max-h-min">
+                        <input
                           value={description}
                           onChange={(e) => {
                             setdescription(e.target.value);
                           }}
                           placeholder="Write your post...."
-                          className="ml-3 w-full mt-2 outline-none font-medium placeholder:text-gray-600 text-xl"
-                        ></textarea>
+                          className="ml-3 w-full mt-2 outline-none font-normal text-2xl pb-10"
+                        />
                       </div>
                       <div className="mt-10 flex space-x-4 justify-between">
                         <div className="flex space-x-4 items-center flex-grow ">
-                          <VideoCameraIcon className="upload_post_btn text-red-500" />
-                          <PhotographIcon className="upload_post_btn  text-green-500" />
-                          <EmojiHappyIcon className="upload_post_btn  text-yellow-500 " />
-                          <LocationMarkerIcon className="upload_post_btn  text-gray-500" />
+                          <div className="flex space-x-1 items-center flex-grow ">
+                            <VideoCameraIcon className="upload_post_btn " />
+                            <PhotographIcon className="upload_post_btn " />
+                            <EmojiHappyIcon className="upload_post_btn  " />
+                            <LocationMarkerIcon className="upload_post_btn" />
+                          </div>
                         </div>
                         <button onClick={postSubmitHandle} className="post_btn">
                           POST

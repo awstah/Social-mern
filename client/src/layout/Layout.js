@@ -36,17 +36,18 @@ function Layout() {
   }, [token]);
 
   return (
-    <div className="">
+    <div className=" w-full h-screen overflow-hidden max-w-6xl mx-auto">
       {openModel && <PostModel isOpen={openModel} setIsOpen={setopenModel} />}
-      <main className="container mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-3">
+
+      <main className="flex gap-3 md:container md:mx-auto">
+        <div className="w-14 xl:w-48 ">
           <Sidebar setopenModel={setopenModel} />
-          <div className="md:col-span-2 lg:col-span-2 w-full border-x border-gray-100 ">
-            <Outlet />
-          </div>
-          <div className="hidden md:inline-block h-14 items-center p-3 space-x-3 sticky top-0">
-            <Searchbar />
-          </div>
+        </div>
+        <div className="flex-1 border-x border-gray-100 h-screen">
+          <Outlet />
+        </div>
+        <div className="hidden lg:inline-flex lg:w-72">
+          <Searchbar />
         </div>
       </main>
     </div>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import PostCard from "./../components/PostCard";
 import PostServices from "../services/PostServices";
+import CreatePost from "./../components/CreatePost";
 
 function Home() {
   const [posts, setposts] = useState([]);
@@ -17,14 +18,16 @@ function Home() {
 
   return (
     <div className="">
-      <div className="w-full h-14 flex items-center px-3 space-x-3 backdrop-blur-md">
-        {/* <ArrowLeftIcon className="h-4" /> */}
+      <div className="h-14 flex items-center px-3 backdrop-blur-md">
         <h3 className="font-semibold">Home</h3>
       </div>
-      {/* <CreatePost userId={userId} /> */}
-      <div className="space-y-2 mt-4 pb-10 ">
+      <div className="px-5">
+        <CreatePost userId={userId} />
         {posts?.map((post) => (
-          <PostCard key={post._id} post={post} />
+          <div className="mt-4">
+            <PostCard key={post._id} post={post} />
+            <div className="border-b border-gray-100 py-3" />
+          </div>
         ))}
       </div>
     </div>
