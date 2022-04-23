@@ -11,22 +11,22 @@
     @apply h-7 px-3 text-black;
   }
   .block_btn {
-    @apply h-12 w-full bg-black text-white rounded-md shadow hover:shadow-lg text-xl tracking-widest active:scale-95 transform transition ease-linear duration-150;
+    @apply h-10 w-full bg-black text-white rounded-md shadow hover:shadow-lg text-lg tracking-widest active:scale-95 transform transition ease-linear duration-150;
   }
 
   .upload_post_btn {
-    @apply h-10 p-2 rounded-md cursor-pointer active:scale-95 transform duration-150 transition;
+    @apply h-10 p-2 rounded-md cursor-pointer active:scale-95 transform duration-150 transition text-blue-500;
   }
 
   .post_btn {
     @apply h-10 w-24 text-white font-medium tracking-widest bg-blue-500 p-2 rounded-md cursor-pointer hover:shadow-xl active:scale-95 transform duration-150 transition;
   }
   .success_btn {
-    @apply h-12 w-32 text-white font-medium tracking-widest bg-green-500 p-2 rounded-md cursor-pointer hover:shadow-xl active:scale-95 transform duration-150 transition;
+    @apply h-12 w-32 text-white font-medium tracking-widest bg-blue-500 p-2 rounded-md cursor-pointer hover:shadow-xl active:scale-95 transform duration-150 transition;
   }
 
   .post_action_btn {
-    @apply flex space-x-2 items-center mx-auto hover:bg-gray-50 w-full justify-center h-8 rounded-lg active:scale-95 
+    @apply flex space-x-2 items-center mx-auto hover:bg-gray-50 w-full justify-center h-10 rounded-lg active:scale-95 
     transform duration-100 text-gray-700 transition;
   }
 }

@@ -1,4 +1,9 @@
-import { ChatAlt2Icon, ShareIcon, ThumbUpIcon } from "@heroicons/react/outline";
+import {
+  ChatAlt2Icon,
+  HeartIcon,
+  ShareIcon,
+  ThumbUpIcon,
+} from "@heroicons/react/outline";
 import React, { useEffect, useState } from "react";
 import PostServices from "../services/PostServices";
 import { useSelector } from "react-redux";
@@ -14,7 +19,6 @@ function PostCard({ post }) {
 
   const LikeUnlikePostHandler = () => {
     PostServices.likePost(postId, userId).then((res) => {
-      console.log(res);
       if (res.data === "post has been liked") {
         setisLike(true);
       } else {
@@ -48,7 +52,7 @@ function PostCard({ post }) {
   }, [isLike]);
 
   return (
-    <div className="max-w-2xl mx-auto border-b border-gray-200 p-3 pb-4">
+    <div className="w-full pt-3">
       <div className="flex space-x-4 items-center">
         <img
           src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1160&q=80"
@@ -66,27 +70,21 @@ function PostCard({ post }) {
       </div>
 
       <div className="mt-3 pb-5">
-        <p className="font-normal text-lg">{post?.description}</p>
-      </div>
-
-      <div>
-        <p className="text-sm text-gray-500">
-          {likes.length} {likes.length > 1 ? "likes" : "like"}
-        </p>
+        <p className="text-lg">{post?.description}</p>
       </div>
 
       <div className="grid grid-cols-3 ">
         <button className="post_action_btn" onClick={LikeUnlikePostHandler}>
-          <ThumbUpIcon className={`h-4 ${isLike && "text-blue-500"}`} />
-          <span className={`${isLike && "text-blue-500"}`}>Like</span>
+          <HeartIcon className={`h-5 ${isLike && "text-rose-500"}`} />
+          <span className={`${isLike && "text-rose-500"}`}>{likes.length}</span>
+        </button>
+
+        <button className="post_action_btn">
+          <ChatAlt2Icon className="h-5" />
+          <span>12</span>
         </button>
         <button className="post_action_btn">
-          <ChatAlt2Icon className="h-4" />
-          <span>Comments</span>
-        </button>
-        <button className="post_action_btn">
-          <ShareIcon className="h-4" />
-          <span>Share</span>
+          <ShareIcon className="h-5" />
         </button>
       </div>
     </div>
