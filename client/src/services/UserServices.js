@@ -41,18 +41,14 @@ const UserServices = {
 
   search(query) {
     return new Promise((res, rej) => {
-      axios
-        .post(API.userSearch(), {
-          query: query,
-        })
-        .then(
-          (response) => {
-            return res(response);
-          },
-          (error) => {
-            return rej(error);
-          }
-        );
+      axios.get(API.userSearch(query)).then(
+        (response) => {
+          return res(response);
+        },
+        (error) => {
+          return rej(error);
+        }
+      );
     });
   },
 

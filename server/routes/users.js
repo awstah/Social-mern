@@ -71,11 +71,17 @@ router.put("/:id/follow", async (req, res) => {
   }
 });
 
-router.post("/search", async (req, res) => {
+router.get("/search/:query", async (req, res) => {
   try {
-    const users = await User.find();
-    if (!users) res.status(400).send({ error: "No User was found" });
-    res.status(200).send(users);
+    const query = req.params.query;
+    const users = await User.find({ first_name: query });
+    console.log(users);
+    if (!users) {
+      res.status(200).json("no users found");
+    }
+    if (users) {
+      res.status(200).json(users);
+    }
   } catch (error) {
     return res.status(500).json(error);
   }
