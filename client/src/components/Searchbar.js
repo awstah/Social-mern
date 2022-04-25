@@ -5,15 +5,24 @@ import FollowCard from "./FollowCard";
 
 function Searchbar() {
   const [query, setquery] = useState("");
+  const [error, seterror] = useState("");
   const [result, setresult] = useState([]);
-  console.log(result);
 
   const onChangeHandler = (e) => {
     let value = e.target.value;
     setquery(value);
-    UserServices.search(query).then((res) => {
-      setresult(res.data);
-    });
+  };
+
+  const searchHandler = (e) => {
+    e.preventDefault();
+    UserServices.search(query)
+      .then((res) => {
+        setresult(res.data);
+      })
+      .catch((err) => {
+        console.log(err.message);
+        seterror(err.message);
+      });
   };
 
   return (
@@ -26,11 +35,14 @@ function Searchbar() {
           value={query}
           onChange={onChangeHandler}
         />
-        <SearchIcon className="hidden sm:inline h-8 bg-black text-white rounded-full p-2 mx-2 cursor-pointer" />
+        <SearchIcon
+          onClick={searchHandler}
+          className="hidden sm:inline h-8 bg-black text-white rounded-full p-2 mx-2 cursor-pointer"
+        />
       </div>
 
       {query && (
-        <div className="w-full h-auto z-10 absolute bg-gray-50 p-3 mt-4 rounded-xl -mr-3">
+        <div className="max-w-sm h-auto z-10 absolute bg-gray-50 p-3 mt-14 rounded-xl ">
           {result ? (
             <>
               {result.map((user) => (
@@ -39,6 +51,11 @@ function Searchbar() {
             </>
           ) : (
             "Loading"
+          )}
+          {error && (
+            <div>
+              <p>{error}</p>
+            </div>
           )}
         </div>
       )}

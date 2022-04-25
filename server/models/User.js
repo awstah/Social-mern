@@ -44,15 +44,6 @@ const UserSchema = mongoose.Schema(
       type: Array,
       default: [],
     },
-    isAdmin: {
-      type: Boolean,
-      default: false,
-    },
-
-    deactivated: {
-      type: Boolean,
-      default: false,
-    },
 
     location: {
       type: String,

@@ -56,8 +56,8 @@ const API = {
   unfollowUser: (id) => {
     return `${Base.apiUrl()}/users/${id}/follow`;
   },
-  userSearch: () => {
-    return `${Base.apiUrl()}/users/search`;
+  userSearch: (query) => {
+    return `${Base.apiUrl()}/users/search/${query}`;
   },
 };
 
